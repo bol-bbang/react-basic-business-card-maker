@@ -1,14 +1,29 @@
 .container {
-  /* position: relative; */
-  /* top: 35vh; */
+  position: sticky;
+  top: calc((100vh - 290px) / 2);
   width: 30rem;
   margin: 0 auto;
-  /* background: white; */
-  /* height: 10rem; */
-  /* margin-top: 30vh; */
+  background: white;
 }
 .buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 1.3rem;
+}
+.label {
+  margin-top: 1.3rem;
+  margin-bottom: 1.3rem;
+}
+.button {
+  width: 95%;
+  border: 0.15rem solid darkblue;
+  border-radius: 3rem;
+  background: none;
+  padding: 0.3rem 0;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+.button:hover {
+  cursor: pointer;
 }
