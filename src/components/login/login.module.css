@@ -1,3 +1,4 @@
+@value makerGreen from '../../common/colors.css';
 .container {
   position: sticky;
   top: calc((100vh - 290px) / 2);
@@ -17,7 +18,7 @@
 }
 .button {
   width: 95%;
-  border: 0.15rem solid darkblue;
+  border: 0.15rem solid makerGreen;
   border-radius: 3rem;
   background: none;
   padding: 0.3rem 0;
