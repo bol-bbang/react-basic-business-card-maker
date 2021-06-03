@@ -1,4 +1,12 @@
-@value makerGreen from '../../common/colors.css';
+@value makerShadow, makerGreen from '../../common/colors.css';
+
+.shadow {
+  width: 100vw;
+  height: 100vh;
+  min-height: 290px;
+  background: makerShadow;
+}
+
 .container {
   position: sticky;
   top: calc((100vh - 290px) / 2);

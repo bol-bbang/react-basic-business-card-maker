@@ -27,14 +27,16 @@ const Login = (props) => {
   }
 
   return (
-    <div className={styles.container}>
-      <Header />
-      <div className={styles.buttons}>
-        <h2 className={styles.label}>Login</h2>
-        <button className={styles.button} onClick={onClick}>Google</button>
-        <button className={styles.button} onClick={onClick}>Github</button>
+    <div className={styles.shadow}>
+      <div className={styles.container}>
+        <Header />
+        <div className={styles.buttons}>
+          <h2 className={styles.label}>Login</h2>
+          <button className={styles.button} onClick={onClick}>Google</button>
+          <button className={styles.button} onClick={onClick}>Github</button>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
     );
 }

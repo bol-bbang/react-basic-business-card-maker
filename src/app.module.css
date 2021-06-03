@@ -1,8 +1,0 @@
-@value makerShadow from './common/colors.css';
-
-.shadow {
-  width: 100vw;
-  height: 100vh;
-  min-height: 290px;
-  background: makerShadow;
-}
