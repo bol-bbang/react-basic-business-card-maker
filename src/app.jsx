@@ -13,10 +13,10 @@ function App({ authService }) {
     <ProvideAuth>
       <Router>
         <Switch>
-          <Route path={['/', '/login']} exact>
-            <Login authService={authService}/>
+          <Route path={['/login']} exact>
+            <Login authService={authService} authContext={authContext}/>
           </Route>
-          <PrivateRoute path="/protected">
+          <PrivateRoute path="/">
             <ProtectedPage />
           </PrivateRoute>
         </Switch>
@@ -29,11 +29,13 @@ const fakeAuth = {
   isAuthenticated: false,
   signin(cb) {
     fakeAuth.isAuthenticated = true;
-    setTimeout(cb, 100); // fake async
+    cb();
+    // setTimeout(cb, 100); // fake async
   },
   signout(cb) {
+    cb();
     fakeAuth.isAuthenticated = false;
-    setTimeout(cb, 100);
+    // setTimeout(cb, 100);
   }
 };
 
@@ -58,13 +60,9 @@ function useAuth() {
 function useProvideAuth() {
   const [user, setUser] = useState(null);
 
-  const signin = cb => {
-
-    //인증 프로세스
-    const userName = 'bol-bbang';
+  const signin = userName => {
     return fakeAuth.signin(() => {
       setUser(userName);
-      cb();
     });
   };
 
@@ -85,11 +83,14 @@ function useProvideAuth() {
 
 
 function ProtectedPage() {
-  return <h3>Protected ~ user!!! log-in!!!!!!</h3>;
+  let auth = useAuth();
+  return <h3>Protected ~ user!!! log-in!!!!!! {auth.user}</h3>;
 }
 
 function PrivateRoute({ children, ...rest }) {
   let auth = useAuth();
+  console.log(auth.user);
+  console.log(auth);
   return (
     <Route
       {...rest}
