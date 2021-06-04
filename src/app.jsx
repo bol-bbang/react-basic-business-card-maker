@@ -8,13 +8,13 @@ import {
   Redirect
 } from "react-router-dom";
 
-function App() {
+function App({ authService }) {
   return (
     <ProvideAuth>
       <Router>
         <Switch>
           <Route path={['/', '/login']} exact>
-            <Login onSignin={useProvideAuth().signin}/>
+            <Login authService={authService}/>
           </Route>
           <PrivateRoute path="/protected">
             <ProtectedPage />

@@ -2,13 +2,11 @@ import React, { useEffect } from 'react';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import styles from './login.module.css';
-import loginAuth from '../../service/loginAuth.js';
 
-const Login = (props) => {
+const Login = ({ authService }) => {
 
-  const onClick = (e) => {
-
-    handleAuth(e.target)
+  const onLogin = (e) => {
+    authService.login(e.target.innerText)
     .then(result => {
       console.log(result);
     })
@@ -17,26 +15,20 @@ const Login = (props) => {
     });
     
   }
-  const handleAuth = (target) => {
-    const auth = new loginAuth();
-    switch(target.innerText){
-      case 'Google': return auth.google();
-      case 'Github': return auth.github();
-    }
-    
-  }
 
   return (
     <div className={styles.shadow}>
-      <div className={styles.container}>
+      <section className={styles.container}>
         <Header />
-        <div className={styles.buttons}>
-          <h2 className={styles.label}>Login</h2>
-          <button className={styles.button} onClick={onClick}>Google</button>
-          <button className={styles.button} onClick={onClick}>Github</button>
-        </div>
+        <section className={styles.login}>
+          <h1 className={styles.label}>Login</h1>
+          <ul className={styles.buttons}>
+            <li><button className={styles.button} onClick={onLogin}>Google</button></li>
+            <li><button className={styles.button} onClick={onLogin}>Github</button></li>
+          </ul>
+        </section>
         <Footer />
-      </div>
+      </section>
     </div>
     );
 }
