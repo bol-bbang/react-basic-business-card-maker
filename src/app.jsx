@@ -1,5 +1,5 @@
 import React, { useContext, createContext, useState } from 'react';
-import styles from './app.module.css';
+// import styles from './app.module.css';
 import Login from './components/login/login';
 import {
   BrowserRouter as Router,
@@ -7,6 +7,8 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import Header from './components/header/header';
+import Footer from './components/footer/footer';
 
 function App({ authService }) {
   return (
@@ -17,7 +19,7 @@ function App({ authService }) {
             <Login authService={authService} authContext={authContext}/>
           </Route>
           <PrivateRoute path="/">
-            <ProtectedPage />
+            <ProtectedPage authService={authService} authContext={authContext} />
           </PrivateRoute>
         </Switch>
       </Router>
@@ -69,7 +71,7 @@ function useProvideAuth() {
   const signout = cb => {
     return fakeAuth.signout(() => {
       setUser(null);
-      cb();
+      cb && cb();
     });
   };
 
@@ -82,15 +84,28 @@ function useProvideAuth() {
 
 
 
-function ProtectedPage() {
-  let auth = useAuth();
-  return <h3>Protected ~ user!!! log-in!!!!!! {auth.user}</h3>;
+function ProtectedPage({authService, authContext}) {
+  const auth = useAuth();
+  const onLogout = (e) => {
+    authService.logout()
+    .then(() => {
+      auth.signout();
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  return (
+    <>
+      <Header onLogout={onLogout} authContext={authContext} />
+      <h3>Protected ~ user!!! log-in!!!!!! {auth.user}</h3>
+      <Footer />
+    </>
+    );
 }
 
 function PrivateRoute({ children, ...rest }) {
   let auth = useAuth();
-  console.log(auth.user);
-  console.log(auth);
   return (
     <Route
       {...rest}
