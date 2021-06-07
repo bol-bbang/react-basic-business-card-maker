@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import Footer from '../footer/footer';
 import Header from '../header/header';
@@ -8,21 +8,36 @@ const Login = ({ authService, authContext }) => {
   const auth = useContext(authContext);
   const history = useHistory();
 
-  const onLogin = (e) => {
-    authService.login(e.target.innerText)
-    .then(result => {
-      if(result.operationType !== 'signIn') return;
-
-      const profile = result.additionalUserInfo.profile;
-      const userName = profile.name;
-      auth.signin(userName);
-      return history.push('/');
-    })
-    .catch(error => {
-      console.log(error);
+  const goToMaker = (userId) => {
+    history.push({
+      pathname: '/maker',
+      state: {id: userId}
     });
+  }
+  const onLogin = (e) => {
+    authService
+      .login(e.target.textContent)
+      .then(result => {
+        // console.log(result);
+        if(result.operationType !== 'signIn') return;
+        
+        const profile = result.additionalUserInfo.profile;
+        const userName = profile.name;
+        auth.signin(userName);
+
+        goToMaker(result.user.uid);
+      })
+      .catch(error => {
+        console.log(error);
+      });
     
   }
+  useEffect(()=>{
+    authService
+      .onAuthStateChanged(user => {
+        user && goToMaker(user.uid);
+      });
+  });
 
   return (
     <div className={styles.shadow}>

@@ -7,20 +7,19 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
+import Maker from './components/maker/maker';
 
 function App({ authService }) {
   return (
     <ProvideAuth>
       <Router>
         <Switch>
-          <Route path={['/login']} exact>
+          <Route path={['/', '/login']} exact>
             <Login authService={authService} authContext={authContext}/>
           </Route>
-          <PrivateRoute path="/">
-            <ProtectedPage authService={authService} authContext={authContext} />
-          </PrivateRoute>
+          <Route path="/maker">
+            <Maker authService={authService} authContext={authContext} />
+          </Route>
         </Switch>
       </Router>
     </ProvideAuth>
@@ -80,28 +79,6 @@ function useProvideAuth() {
     signin,
     signout
   };
-}
-
-
-
-function ProtectedPage({authService, authContext}) {
-  const auth = useAuth();
-  const onLogout = (e) => {
-    authService.logout()
-    .then(() => {
-      auth.signout();
-    }).catch((error) => {
-      console.log(error);
-    });
-  }
-
-  return (
-    <>
-      <Header onLogout={onLogout} authContext={authContext} />
-      <h3>Protected ~ user!!! log-in!!!!!! {auth.user}</h3>
-      <Footer />
-    </>
-    );
 }
 
 function PrivateRoute({ children, ...rest }) {
