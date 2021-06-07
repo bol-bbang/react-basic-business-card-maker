@@ -4,8 +4,7 @@ import Footer from '../footer/footer';
 import Header from '../header/header';
 import styles from './login.module.css';
 
-const Login = ({ authService, authContext }) => {
-  const auth = useContext(authContext);
+const Login = ({ authService }) => {
   const history = useHistory();
 
   const goToMaker = (userId) => {
@@ -17,16 +16,7 @@ const Login = ({ authService, authContext }) => {
   const onLogin = (e) => {
     authService
       .login(e.target.textContent)
-      .then(result => {
-        // console.log(result);
-        if(result.operationType !== 'signIn') return;
-        
-        const profile = result.additionalUserInfo.profile;
-        const userName = profile.name;
-        auth.signin(userName);
-
-        goToMaker(result.user.uid);
-      })
+      .then(data => goToMaker(data.user.uid))
       .catch(error => {
         console.log(error);
       });

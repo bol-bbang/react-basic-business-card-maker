@@ -1,26 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import styles from './maker.module.css'
 
-const Maker = ({authService, authContext}) => {
+const Maker = ({ authService }) => {
 
-  // const auth = useAuth();
-  const auth = useContext(authContext);
+  const history = useHistory();
+
   const onLogout = (e) => {
     authService.logout()
-    .then(() => {
-      auth.signout();
-    }).catch((error) => {
-      console.log(error);
-    });
   }
+
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if(!user){
+        history.push({
+          pathname: '/'
+        })
+      }
+    });
+  });
   
   return (
-    <>
-      <Header onLogout={onLogout} authContext={authContext} />
-      <h3>Protected ~ user!!! log-in!!!!!! {auth.user}</h3>
+    <section className={styles.maker}>
+      <Header onLogout={onLogout} />
+      <h3>Protected ~ user!!! log-in!!!!!! </h3>
       <Footer />
-    </>
+    </section>
     );
 }
 
