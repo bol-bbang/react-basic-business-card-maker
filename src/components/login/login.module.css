@@ -1,45 +1,36 @@
-@value makerShadow, makerGreen from '../../common/colors.css';
+@value makerWhite, makerGreen, makerLightPink from '../../common/colors.css';
 
-.shadow {
-  width: 100vw;
-  height: 100vh;
-  min-height: 290px;
-  background: makerShadow;
-}
-
-.container {
-  position: sticky;
-  top: calc((100vh - 290px) / 2);
-  width: 30rem;
-  margin: 0 auto;
-  background: white;
-}
 .login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 1.3rem;
+  /* position: sticky;
+  top: calc((100vh - 290px) / 2); */
+  width: 30rem;
+  /* margin: 0 auto; */
+  background: makerWhite;
+  text-align: center;
 }
+
 .label {
   margin-top: 1.3rem;
   margin-bottom: 1.3rem;
 }
 .buttons {
   width: 100%;
+  padding: 0.5em 1em;
+  list-style: none;
 }
 .buttons li {
-  list-style: none;
-  text-align: center;
+  margin-bottom: 0.3rem;
 }
 .button {
-  width: 95%;
+  width: 100%;
+  outline: none;
   border: 0.15rem solid makerGreen;
   border-radius: 3rem;
   background: none;
   padding: 0.3rem 0;
-  margin-bottom: 0.3rem;
   font-size: 1rem;
+  cursor: pointer;
 }
 .button:hover {
-  cursor: pointer;
+  background-color: makerLightPink;
 }

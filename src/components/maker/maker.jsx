@@ -15,9 +15,7 @@ const Maker = ({ authService }) => {
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if(!user){
-        history.push({
-          pathname: '/'
-        })
+        history.push('/');
       }
     });
   });

@@ -30,10 +30,9 @@ const Login = ({ authService }) => {
   });
 
   return (
-    <div className={styles.shadow}>
-      <section className={styles.container}>
+      <section className={styles.login}>
         <Header />
-        <section className={styles.login}>
+        <section>
           <h1 className={styles.label}>Login</h1>
           <ul className={styles.buttons}>
             <li><button className={styles.button} onClick={onLogin}>Google</button></li>
@@ -42,7 +41,6 @@ const Login = ({ authService }) => {
         </section>
         <Footer />
       </section>
-    </div>
     );
 }
 

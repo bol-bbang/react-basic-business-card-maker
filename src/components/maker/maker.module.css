@@ -1,0 +1,7 @@
+@value makerWhite from '../../common/colors.css';
+
+.maker {
+  width: 100%;
+  height: 100%;
+  background-color: makerWhite;
+}
