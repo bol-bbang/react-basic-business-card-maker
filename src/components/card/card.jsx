@@ -1,6 +1,33 @@
 import React from 'react';
 import styles from './card.module.css';
 
-const Card = ({ card }) => <div>{card.id} {card.name}</div>;
+const DEFAULT_IMAGE = '/images/default_logo.png';
+const Card = ({ card }) => {
+  const { name, company, title, phone, email, theme, message, fileName, fileURL } = card;
+  const url = fileURL || DEFAULT_IMAGE;
+
+  function getStyles(theme){
+    switch(theme){
+      case 'dark': return styles.dark;
+      case 'light': return styles.light;
+      case 'colorful': return styles.colorful;
+      default: throw new Error('unknown theme: ${theme}');
+    }
+  }
+
+  return (
+      <li className={`${styles.card} ${getStyles(theme)}`}>
+        <img className={styles.img} src={url} alt="profile photo" />
+        <div className={styles.info}>
+          <h1 className={styles.name}>{name}</h1>
+          <p className={styles.company}>{company}</p>
+          <p className={styles.phone}>{title}</p>
+          <p className={styles.phone}>{phone}</p>
+          <p className={styles.email}>{email}</p>
+          <p className={styles.message}>{message}</p>
+        </div>
+      </li>
+    );
+}
 
 export default Card;

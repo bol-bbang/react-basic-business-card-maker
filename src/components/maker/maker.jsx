@@ -13,20 +13,22 @@ const Maker = ({ authService }) => {
     {
       id: 1, 
       name: 'bol-bbang', 
+      company: 'HHsoft',
+      title: 'manager',
       phone: '010-5549-0226', 
       email: 'parkhh9000@gmail.com',
-      company: 'HHsoft',
-      theme: 'light',
+      theme: 'dark',
       message: 'no pain, no gain',
       fileName: 'file_name',
-      fileURL: 'bol-bbang.png'
+      fileURL: null
     },
     {
       id: 2, 
       name: 'hoon', 
+      company: 'HHsoft',
+      title: 'CEO',
       phone: '010-2464-6701', 
       email: 'imode7@gmail.com',
-      company: 'HHsoft',
       theme: 'light',
       message: 'no pain, no gain',
       fileName: 'file_name',
@@ -35,10 +37,11 @@ const Maker = ({ authService }) => {
     {
       id: 3, 
       name: 'hee', 
+      company: 'HHsoft',
+      title: 'web software engineer',
       phone: '010-xxxx-xxxx', 
       email: 'prettysea90@naver.com',
-      company: 'HHsoft',
-      theme: 'light',
+      theme: 'colorful',
       message: 'no pain, no gain',
       fileName: 'file_name',
       fileURL: 'bol-bbang.png'

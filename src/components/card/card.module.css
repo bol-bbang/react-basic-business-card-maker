@@ -1,0 +1,42 @@
+@value makerLightGrey, makerBlack, makerWhite, makerColorful, makerShadow from '../../common/colors.css';
+
+.card {
+  list-style: none;
+  display: flex;
+  border: 1px solid makerLightGrey;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 6px 6px 8px 0px makerShadow;
+}
+.dark {
+  background-color: makerBlack;
+  color: makerWhite;
+}
+.light {
+  background-color: makerWhite;
+  color: makerBlack;
+}
+.colorful {
+  background: makerColorful;
+  color: makerWhite;
+}
+.img {
+  width: 30%;
+  border-radius: 50%;
+}
+.info {
+  margin-left: 1.5rem;
+  text-align: left;
+  width: 100%;
+}
+.name {
+}
+.company {
+}
+.phone {
+}
+.email {
+}
+.message {
+}
