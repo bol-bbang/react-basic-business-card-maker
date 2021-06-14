@@ -3,6 +3,7 @@
 .editor {
   flex-basis: 50%;
   text-align: center;
+  padding: 1.5rem;
 }
 .title {
   color: makerGreen;
