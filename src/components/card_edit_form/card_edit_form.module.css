@@ -23,6 +23,10 @@
 .select {
   flex: 1 1 50%;
 }
+.fileInput {
+  padding: 0;
+  flex: 1 1 50%;
+}
 .textarea {
   flex-basis: 100%;
   resize: none;

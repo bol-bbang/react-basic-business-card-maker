@@ -7,9 +7,6 @@
   border: 0;
   padding: 0.5rem;
   outline: none;
-  border-bottom: 1px solid makerGrey;
-  border-right: 1px solid makerGrey;
   background-color: makerLightPink;
   color: makerGrey;
-  flex: 1 1 30%;
 }
