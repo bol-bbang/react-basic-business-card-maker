@@ -1,0 +1,33 @@
+@value makerGrey from '../../common/colors.css';
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1rem auto;
+  border-top: 1px solid makerGrey;
+  border-left: 1px solid makerGrey;
+}
+.input,
+.select,
+.textarea,
+.fileInput {
+  font-size: 0.8rem;
+  width: 100%;
+  border: 0;
+  padding: 0.5rem;
+  outline: none;
+  border-bottom: 1px solid makerGrey;
+  border-right: 1px solid makerGrey;
+}
+.input,
+.select {
+  flex: 1 1 50%;
+}
+.fileInput {
+  padding: 0;
+  flex: 1 1 50%;
+}
+.textarea {
+  flex-basis: 100%;
+  resize: none;
+}
