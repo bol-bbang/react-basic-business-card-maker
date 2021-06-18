@@ -4,18 +4,18 @@ import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './card_add_form.module.css';
 
 const CardAddForm = ( props ) => {
-  const name = useRef();
-  const theme = useRef();
-  const company = useRef();
-  const title = useRef();
-  const phone = useRef();
-  const email = useRef();
-  const message = useRef();
+  const nameRef = useRef();
+  const themeRef = useRef();
+  const companyRef = useRef();
+  const titleRef = useRef();
+  const phoneRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
 
   const onSubmit = (e) => {
     e.preventDefault();
     const card = {
-      id: Date.now(); //uuid
+      id: Date.now(), //uuid
       name : nameRef.current.value || '',
       theme : themeRef.current.value || '',
       company : companyRef.current.value || '',
