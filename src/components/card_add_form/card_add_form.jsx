@@ -3,7 +3,8 @@ import Button from '../button/button';
 import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './card_add_form.module.css';
 
-const CardAddForm = ( props ) => {
+const CardAddForm = ({ addCard }) => {
+  const formRef = useRef();
   const nameRef = useRef();
   const themeRef = useRef();
   const companyRef = useRef();
@@ -17,7 +18,7 @@ const CardAddForm = ( props ) => {
     const card = {
       id: Date.now(), //uuid
       name : nameRef.current.value || '',
-      theme : themeRef.current.value || '',
+      theme : themeRef.current.value,
       company : companyRef.current.value || '',
       title : titleRef.current.value || '',
       phone : phoneRef.current.value || '',
@@ -26,10 +27,13 @@ const CardAddForm = ( props ) => {
       fileName : '',
       fileURL : '',
     }
+    formRef.current.reset();
+    addCard(card);
+
   }
 
   return(
-      <form className={styles.form}>
+      <form ref={formRef} className={styles.form}>
         <input ref={nameRef} className={styles.input} type="text" name="name" placeholder="name"/>
         <select ref={themeRef} className={styles.select} name="theme" >
           <option value="dark">dark</option>

@@ -5,7 +5,7 @@ import styles from './card_edit_form.module.css';
 
 const CardEditForm = ({ card }) => {
   const { name, company, title, phone, email, theme, message, fileName, fileURL } = card;
-  const onSubmit = () => {}
+  const onDelete = () => {}
   const onChange = () => {}
 
   return(
@@ -24,7 +24,7 @@ const CardEditForm = ({ card }) => {
         <div className={styles.fileInput}>
           <ImageFileInput fileName={fileName} />
         </div>
-        <Button name="Delete" onClick={onSubmit}/>
+        <Button name="Delete" onClick={onDelete}/>
       </form>
   );
 }
