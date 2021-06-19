@@ -44,7 +44,7 @@ const CardAddForm = ({ addCard }) => {
         <input ref={titleRef} className={styles.input} type="text" name="title" placeholder="title" />
         <input ref={phoneRef} className={styles.input} type="text" name="phone" placeholder="phone" />
         <input ref={emailRef} className={styles.input} type="text" name="email" placeholder="email" />
-        <textarea ref={messageRef} className={styles.textarea} name="message" ></textarea>
+        <textarea ref={messageRef} className={styles.textarea} name="message" placeholder="message"></textarea>
         <div className={styles.fileInput}>
           <ImageFileInput />
         </div>
