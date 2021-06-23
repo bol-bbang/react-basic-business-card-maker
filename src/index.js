@@ -8,9 +8,9 @@ import ImageFileInput from './components/image_file_input/image_file_input';
 
 const authService = new AuthService();
 const uploadService = new UploadService();
-const FileInput = props => {
+const FileInput = props => (
   <ImageFileInput {...props} uploadService={uploadService}/>
-}
+)
 
 ReactDOM.render(
   <React.StrictMode>

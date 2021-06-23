@@ -1,5 +1,7 @@
-class Upload{
-
+class UploadService{
+  async upload(file){
+      return 'file';
+  }
 }
 
-export default Upload;
+export default UploadService;
