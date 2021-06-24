@@ -12,8 +12,8 @@ const ImageFileInput = ({ uploadService, name, onFileChange }) => {
     const uploaded = await uploadService.upload(e.target.files[0]);
     //uploaded가 끝나고 나면 아래 내용이 실행됨
     onFileChange && onFileChange({
-      name : 'fileName',
-      url : 'url'
+      name : uploaded.original_filename,
+      url : uploaded.secure_url
     });
   }
 

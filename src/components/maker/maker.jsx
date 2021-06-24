@@ -19,7 +19,7 @@ const Maker = ({ FileInput, authService }) => {
       email: 'parkhh9000@gmail.com',
       theme: 'dark',
       message: 'no pain, no gain',
-      fileName: 'file_name',
+      fileName: null,
       fileURL: null
     },
     '2' : {
@@ -31,8 +31,8 @@ const Maker = ({ FileInput, authService }) => {
       email: 'imode7@gmail.com',
       theme: 'light',
       message: 'no pain, no gain',
-      fileName: 'file_name',
-      fileURL: 'bol-bbang.png'
+      fileName: null,
+      fileURL: null
     },
     '3' : {
       id: 3, 
@@ -43,8 +43,8 @@ const Maker = ({ FileInput, authService }) => {
       email: 'prettysea90@naver.com',
       theme: 'colorful',
       message: 'no pain, no gain',
-      fileName: 'file_name',
-      fileURL: 'bol-bbang.png'
+      fileName: null,
+      fileURL: null
     }
 });
   
