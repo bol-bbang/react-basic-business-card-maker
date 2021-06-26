@@ -3,9 +3,9 @@ class UploadService{
     const formData = new FormData();
 
     formData.append("file", file);
-    formData.append("upload_preset", "ychjyq0j");
+    formData.append("upload_preset", process.env.REACT_APP_UPLOAD_PRESET_NAME);
 
-    const result = await fetch('https://api.cloudinary.com/v1_1/dcllrgq1x/image/upload', {
+    const result = await fetch(process.env.REACT_APP_UPLOAD_URL, {
                       method: 'POST',
                       body: formData
                     });
