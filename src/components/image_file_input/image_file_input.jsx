@@ -19,7 +19,7 @@ const ImageFileInput = ({ uploadService, name, onFileChange }) => {
 
   return (
     <div className={styles.contatiner}>
-      <button className={styles.button} onClick={onButtonClick}>{ name || 'No File' }</button>
+      <button className={`${styles.button} ${name && styles.hasFile}`} onClick={onButtonClick}>{ name || 'No File' }</button>
       <input className={styles.input} name="file" type="file" accept="image/*"
         ref={inputRef}
         onChange={onChange}

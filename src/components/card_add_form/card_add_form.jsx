@@ -11,7 +11,7 @@ const CardAddForm = ({ FileInput, addCard }) => {
   const phoneRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
-  const [file, setFile] = useState({ fileName : null, fileURL : null});
+  const [file, setFile] = useState({ fileName : null, fileURL : null });
 
   const onFileChange = file => {
     setFile({
@@ -34,8 +34,9 @@ const CardAddForm = ({ FileInput, addCard }) => {
       fileURL : file.fileURL || '',
     }
     formRef.current.reset();
-    addCard(card);
+    setFile({ fileName : null, fileURL : null });  /* 파일 state 초기화 */
 
+    addCard(card);
   }
 
   return(

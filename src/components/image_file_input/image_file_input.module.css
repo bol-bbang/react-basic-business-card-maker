@@ -1,4 +1,4 @@
-@value makerGrey, makerLightPink from '../../common/colors.css';
+@value makerBalck, makerLightPink, makerLightGrey from '../../common/colors.css';
 
 .container {
   width: 100%;
@@ -12,9 +12,13 @@
   border: 0;
   padding: 0.5rem;
   outline: none;
-  background-color: makerLightPink;
-  color: makerGrey;
+  background-color: makerLightGrey;
+  color: makerBalck;
   cursor: pointer;
+}
+.hasFile {
+  background-color: makerLightPink;
+  color: makerBalck;
 }
 .button:hover {
   opacity: 0.8;
