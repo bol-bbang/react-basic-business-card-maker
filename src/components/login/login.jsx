@@ -18,7 +18,7 @@ const Login = ({ authService }) => {
       .login(e.target.textContent)
       .then(data => goToMaker(data.user.uid))
       .catch(error => {
-        console.log(error);
+        console.log('로그인 실패');
       });
     
   }
