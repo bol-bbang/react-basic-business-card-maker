@@ -4,24 +4,25 @@ import firebaseApp from './firebase';
 
 class DatabaseService {
 
-  setUserId(userId){
-    this.userId = userId;
+  // setUserId(userId) {
+  //   this.userId = userId;
+  //   console.log(`setUserId : ${this.userId}`);
+  // }
+
+  async getCards(userId) {
+    return firebaseApp.database().ref(`${userId}/cards`).get();
   }
 
-  async getCards(){
-    return firebaseApp.database().ref(`${this.userId}/cards`).get();
-  }
-
-  update(card){
+  update(card, userId) {
     firebaseApp.database()
-    .ref(`${this.userId}/cards/${card.id}`)
-    .set(card);
+      .ref(`${userId}/cards/${card.id}`)
+      .set(card);
   }
 
-  delete(card){
+  delete(card, userId) {
     firebaseApp.database()
-    .ref(`${this.userId}/cards/${card.id}`)
-    .remove();
+      .ref(`${userId}/cards/${card.id}`)
+      .remove();
   }
 }
 
