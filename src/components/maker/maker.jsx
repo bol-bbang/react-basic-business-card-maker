@@ -36,7 +36,7 @@ const Maker = ({ FileInput, authService, databaseService }) => {
         value && setCards(value);
       });
 
-  }, [userId]);
+  }, [userId, databaseService]);
 
   const createOrUpdateCard = (card) => {
     setCards(cards => {

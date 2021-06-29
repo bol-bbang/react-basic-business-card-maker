@@ -11,13 +11,13 @@ const Card = ({ card }) => {
       case 'dark': return styles.dark;
       case 'light': return styles.light;
       case 'colorful': return styles.colorful;
-      default: throw new Error('unknown theme: ${theme}');
+      default: throw new Error(`unknown theme: ${theme}`);
     }
   }
 
   return (
       <li className={`${styles.card} ${getStyles(theme)}`}>
-        <img className={styles.img} src={url} alt="profile photo" />
+        <img className={styles.img} src={url} alt="profile" />
         <div className={styles.info}>
           <h1 className={styles.name}>{name}</h1>
           <p className={styles.company}>{company}</p>

@@ -27,7 +27,7 @@ const ImageFileInput = ({ uploadService, name, onFileChange }) => {
         onChange={onChange}
       />
       { !loading && <button className={`${styles.button} ${name && styles.hasFile}`} onClick={onButtonClick}>{ name || 'No File' }</button> }
-      { loading && <div><img className={styles.loading} src="images/loding_bean_eater.gif" /></div> }
+      { loading && <div><img className={styles.loading} src="images/loding_bean_eater.gif" alt="loading..." /></div> }
     </div>
     );
 }
