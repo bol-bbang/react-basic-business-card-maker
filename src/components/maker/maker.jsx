@@ -26,7 +26,7 @@ const Maker = ({ FileInput, authService, databaseService }) => {
       }
     });
 
-  });
+  }, [authService, userId, history]);
 
   useEffect(() => {
 
