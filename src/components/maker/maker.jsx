@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Editor from '../editor/editor';
 import Footer from '../footer/footer';
@@ -13,9 +13,9 @@ const Maker = ({ FileInput, authService, databaseService }) => {
   const [cards, setCards] = useState({});
   const [userId, setUserId] = useState(historyState && historyState.id);
 
-  const onLogout = (e) => {
+  const onLogout = useCallback(() => {
     authService.logout();
-  }
+  }, [authService]);
 
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
@@ -26,7 +26,7 @@ const Maker = ({ FileInput, authService, databaseService }) => {
       }
     });
 
-  }, [authService, userId, history]);
+  }, [authService, history]);
 
   useEffect(() => {
 
@@ -38,7 +38,7 @@ const Maker = ({ FileInput, authService, databaseService }) => {
 
   }, [userId, databaseService]);
 
-  const createOrUpdateCard = (card) => {
+  const createOrUpdateCard = useCallback((card) => {
     setCards(cards => {
       let updated = { ...cards };
       updated[card.id] = card;
@@ -46,9 +46,9 @@ const Maker = ({ FileInput, authService, databaseService }) => {
     });
 
     databaseService.update(card, userId);
-  }
+  }, [databaseService, userId]);
 
-  const deleteCard = (card) => {
+  const deleteCard = useCallback((card) => {
     setCards(cards => {
       let updated = { ...cards };
       delete updated[card.id];
@@ -56,7 +56,7 @@ const Maker = ({ FileInput, authService, databaseService }) => {
     });
 
     databaseService.delete(card, userId);
-  }
+  }, [databaseService, userId]);
 
   return (
     <section className={styles.maker}>
