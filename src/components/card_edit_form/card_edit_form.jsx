@@ -19,7 +19,8 @@ const CardEditForm = memo(({ FileInput, card, updateCard, deleteCard }) => {
 
   }
 
-  const onDelete = () => {
+  const onDelete = (e) => {
+    e.preventDefault();
     deleteCard(card);
   }
 
