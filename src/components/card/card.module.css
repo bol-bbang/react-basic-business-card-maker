@@ -30,7 +30,8 @@
 .info {
   margin-left: 1.7rem;
   text-align: left;
-  width: 100%;
+  width: 62%;
+  overflow: hidden;
 }
 .name,
 .company,

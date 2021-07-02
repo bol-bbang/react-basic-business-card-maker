@@ -6,6 +6,7 @@
   margin: 1rem auto;
   border-top: 1px solid makerGrey;
   border-left: 1px solid makerGrey;
+  max-width: 30rem;
 }
 .input,
 .select,
