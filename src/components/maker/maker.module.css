@@ -5,7 +5,7 @@
   max-width: mediaQuery;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   background-color: makerWhite;
@@ -14,11 +14,13 @@
 .container {
   flex: 1; /* header와 footer 사이에 가득채우기 */
   display: flex;
+  min-height: 0;
 }
 
 @media screen and (max-width: mediaQuery) {
   .container {
     flex-direction: column;
     align-items: center;
+    min-height: auto;
   }
 }

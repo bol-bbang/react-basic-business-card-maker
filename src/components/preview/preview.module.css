@@ -4,6 +4,7 @@
   flex-basis: 50%;
   text-align: center;
   padding: 1.5rem;
+  overflow-y: auto;
 }
 .title {
   color: makerGreen;

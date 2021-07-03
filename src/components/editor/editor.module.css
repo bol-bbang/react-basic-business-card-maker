@@ -1,11 +1,21 @@
-@value makerGreen from '../../common/colors.css';
+@value makerGreen, makerLightGrey from '../../common/colors.css';
+@value mediaQuery from '../../common/size.css';
 
 .editor {
   flex-basis: 50%;
   text-align: center;
   padding: 1.5rem;
+  overflow-y: auto;
+  border-right: 1px solid makerLightGrey;
 }
 .title {
   color: makerGreen;
   margin: 1rem;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .editor {
+    border-right: none;
+    border-bottom: 1px solid makerLightGrey;
+  }
 }
