@@ -41,6 +41,7 @@
 .message {
   font-size: 0.8rem;
   margin-bottom: 0.2em;
+  white-space: nowrap;
 }
 .name {
   font-size: 1.2rem;
