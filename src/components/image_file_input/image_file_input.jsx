@@ -1,7 +1,7 @@
 import React, { memo, useRef, useState } from 'react';
 import styles from './image_file_input.module.css';
 
-const ImageFileInput = memo(({ uploadService, name, onFileChange }) => {
+const ImageFileInput = memo(({ uploadService, cropService, name, onFileChange }) => {
 
   const [loading, setLoading] = useState(false);
   const inputRef = useRef();
@@ -11,6 +11,12 @@ const ImageFileInput = memo(({ uploadService, name, onFileChange }) => {
   }
   const onChange = async (e) => {
     setLoading(true);
+
+    //선택된 이미지 팝업
+    //이미지 사이즈 조정
+    cropService.showCropArea(e.target.files[0]);
+
+
     const uploaded = await uploadService.upload(e.target.files[0]);
     //uploaded가 끝나고 나면 아래 내용이 실행됨
     setLoading(false);
